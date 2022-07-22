@@ -1,7 +1,7 @@
 import express from 'express';
 import responseTime from 'response-time';
 import { config } from './config.js';
-import { phone } from './data/data.js';
+import { user } from './data/data.js';
 import { sequelize } from './db/database.js';
 
 const app = express();
