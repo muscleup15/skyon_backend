@@ -3,10 +3,6 @@ import { sequelize } from '../db/database.js';
 import * as constant from '../constant.js';
 const DataTypes = SQ.DataTypes;
 
-//TODO: Set foreign key(User, ParentInfo, EnrollTabInfo, Enroll, Lesson)
-//TODO: egid, etid foreign key 조건설정, student, teacher foreign key 확인!
-//TODO: JSON ENUM(SET으로 설정해주는 것 같음)
-
 export const user = sequelize.define('User', {
   uid: {
     type: DataTypes.INTEGER.UNSIGNED,
@@ -95,8 +91,8 @@ export const studentInfo = sequelize.define('StudentInfo', {
     allowNull: false,
   },
 });
-studentInfo.hasMany(user, {
-  foreignKey: 'siid',
+user.hasMany(studentInfo, {
+  foreignKey: 'uid',
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE',
 });
@@ -125,8 +121,8 @@ export const parentInfo = sequelize.define('ParentInfo', {
     allowNull: false,
   },
 });
-parentInfo.hasMany(user, {
-  foreignKey: 'piid',
+user.hasMany(parentInfo, {
+  foreignKey: 'uid',
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE',
 });
@@ -177,13 +173,13 @@ export const teacherInfo = sequelize.define('TeacherInfo', {
     allowNull: false,
   },
   career: {
-    type: DataTypes.JSON, //다시보기
+    type: DataTypes.JSON,
   },
   subject: {
-    type: DataTypes.JSON, //다시보기
+    type: DataTypes.JSON,
   },
   detailSubject: {
-    type: DataTypes.JSON, //다시보기
+    type: DataTypes.JSON,
   },
   bank: {
     type: DataTypes.STRING(30),
@@ -206,8 +202,8 @@ export const teacherInfo = sequelize.define('TeacherInfo', {
     allowNull: false,
   },
 });
-teacherInfo.hasMany(user, {
-  foreignKey: 'tiid',
+user.hasMany(teacherInfo, {
+  foreignKey: 'uid',
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE',
 });
@@ -236,8 +232,8 @@ export const adminInfo = sequelize.define('AdminInfo', {
     allowNull: false,
   },
 });
-adminInfo.hasMany(user, {
-  foreignKey: 'aiid',
+user.hasMany(adminInfo, {
+  foreignKey: 'uid',
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE',
 });
@@ -369,7 +365,7 @@ export const enroll = sequelize.define('Enroll', {
     defaultValue: 0,
   },
   detailSubject: {
-    type: DataTypes.JSON, //공부 필요!
+    type: DataTypes.JSON,
   },
   currentScoreDescription: {
     type: DataTypes.STRING(256),
@@ -391,7 +387,7 @@ export const enroll = sequelize.define('Enroll', {
     allowNull: false,
   },
   lessonSchedule: {
-    type: DataTypes.JSON, //확인필요!
+    type: DataTypes.JSON,
   },
   createdAt: {
     type: 'TIMESTAMP',
@@ -407,13 +403,18 @@ export const enroll = sequelize.define('Enroll', {
   },
 });
 
-user.hasMany(enroll, {
-  foreignKey: 'uid',
+studentInfo.hasMany(enroll, {
+  foreignKey: 'siid',
+  onUpdate: 'CASCADE',
+  onDelete: 'CASCADE',
+});
+teacherInfo.hasMany(enroll, {
+  foreignKey: 'tiid',
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE',
 });
 plan.hasMany(enroll, {
-  foreignKey: 'eid',
+  foreignKey: 'pid',
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE',
 });
@@ -465,13 +466,3 @@ enroll.hasMany(lesson, {
   onUpdate: 'CASCADE',
   onDelete: 'CASCADE',
 });
-
-export const test = sequelize.define(
-  'test',
-  {
-    test: {
-      type: DataTypes.JSON,
-    },
-  },
-  { timestamps: false }
-);
