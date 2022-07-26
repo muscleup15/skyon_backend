@@ -5,15 +5,17 @@ import { user } from './data/model.js';
 import { sequelize } from './db/database.js';
 import authRouter from './router/auth.js';
 import testRouter from './router/test.js';
+import sendRouter from './router/send.js';
 
 const app = express();
 app.use(express.json());
 
-app.use('/', testRouter);
-app.use('/', authRouter);
+app.use('/test', testRouter);
+app.use('/api/auth', authRouter);
+app.use('/api/send', sendRouter);
 
+// app.use('/api/enroll');
 // app.use('/api/db', mysqlRouter);
-// app.use('/api/send', sendRouter);
 // app.use('/api/secure', secureRouter);
 // app.use('/api/hash', hashRouter);
 

@@ -5,6 +5,10 @@ const router = express.Router();
 const app = express();
 app.use(express.json());
 
-router.get('/getuserinfo', authController.getUserInfo);
+router.post('/compareverifycode', authController.compareVerifyCode);
+
+router.post('/signup', authController.signUp);
+
+router.put('/test', authController.testChangePw);
 
 export default router;

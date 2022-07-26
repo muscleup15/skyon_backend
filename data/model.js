@@ -26,18 +26,6 @@ export const user = sequelize.define('User', {
     type: DataTypes.STRING(30),
     allowNull: false,
   },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
-    allowNull: false,
-  },
 });
 
 export const studentInfo = sequelize.define('StudentInfo', {
@@ -78,18 +66,6 @@ export const studentInfo = sequelize.define('StudentInfo', {
   gender: {
     type: DataTypes.ENUM('M', 'W'),
   },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
-    allowNull: false,
-  },
 });
 user.hasMany(studentInfo, {
   foreignKey: 'uid',
@@ -106,18 +82,6 @@ export const parentInfo = sequelize.define('ParentInfo', {
   },
   name: {
     type: DataTypes.CHAR(5),
-    allowNull: false,
-  },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
     allowNull: false,
   },
 });
@@ -189,18 +153,6 @@ export const teacherInfo = sequelize.define('TeacherInfo', {
     type: DataTypes.STRING(30),
     allowNull: false,
   },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
-    allowNull: false,
-  },
 });
 user.hasMany(teacherInfo, {
   foreignKey: 'uid',
@@ -217,18 +169,6 @@ export const adminInfo = sequelize.define('AdminInfo', {
   },
   name: {
     type: DataTypes.CHAR(5),
-    allowNull: false,
-  },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
     allowNull: false,
   },
 });
@@ -261,18 +201,6 @@ export const plan = sequelize.define('Plan', {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
-    allowNull: false,
-  },
 });
 
 export const studyCafe = sequelize.define(
@@ -284,18 +212,6 @@ export const studyCafe = sequelize.define(
       allowNull: false,
       primaryKey: true,
     },
-    createdAt: {
-      type: 'TIMESTAMP',
-      defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-      allowNull: false,
-    },
-    updatedAt: {
-      type: 'TIMESTAMP',
-      defaultValue: SQ.Sequelize.literal(
-        'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-      ),
-      allowNull: false,
-    },
   },
   { freezeTableName: true }
 );
@@ -306,18 +222,6 @@ export const enrollGoInfo = sequelize.define('EnrollGoInfo', {
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
-  },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
-    allowNull: false,
   },
 });
 
@@ -333,18 +237,6 @@ export const enrollTabInfo = sequelize.define('EnrollTabInfo', {
     autoIncrement: true,
     allowNull: false,
     primaryKey: true,
-  },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
-    allowNull: false,
   },
 });
 
@@ -388,18 +280,6 @@ export const enroll = sequelize.define('Enroll', {
   },
   lessonSchedule: {
     type: DataTypes.JSON,
-  },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
-    allowNull: false,
   },
 });
 
@@ -446,18 +326,6 @@ export const lesson = sequelize.define('Lesson', {
   },
   endSchedule: {
     type: DataTypes.DATEONLY,
-    allowNull: false,
-  },
-  createdAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal('CURRENT_TIMESTAMP'),
-    allowNull: false,
-  },
-  updatedAt: {
-    type: 'TIMESTAMP',
-    defaultValue: SQ.Sequelize.literal(
-      'CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'
-    ),
     allowNull: false,
   },
 });
