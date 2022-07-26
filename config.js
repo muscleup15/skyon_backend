@@ -19,4 +19,10 @@ export const config = {
   host: {
     port: required('HOST_PORT', 8080),
   },
+  ncpcInfo: {
+    phoneNumber: required('PHONE_NUMBER'),
+    serviceId: required('SERVICE_ID'),
+    secretKey: required('SECRET_KEY'),
+    accessKey: required('ACCESS_KEY'),
+  },
 };
