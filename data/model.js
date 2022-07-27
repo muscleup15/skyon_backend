@@ -1,6 +1,6 @@
 import SQ from 'sequelize';
 import { sequelize } from '../db/database.js';
-import * as constant from '../constant.js';
+import * as constant from './constant.js';
 const DataTypes = SQ.DataTypes;
 
 export const user = sequelize.define('User', {

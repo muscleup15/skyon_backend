@@ -8,4 +8,8 @@ app.use(express.json());
 
 router.get('/sendphone', sendController.sendPhone);
 
+router.post('/sendstart', sendController.sendStart);
+
+router.post('/sendend', sendController.sendEnd);
+
 export default router;

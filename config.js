@@ -17,12 +17,17 @@ export const config = {
     password: required('DB_PASSWORD'),
   },
   host: {
-    port: required('HOST_PORT', 8080),
+    port: parseInt(required('HOST_PORT', 8080)),
   },
   ncpcInfo: {
-    phoneNumber: required('PHONE_NUMBER'),
+    phoneNumber: parseInt(required('PHONE_NUMBER')),
     serviceId: required('SERVICE_ID'),
     secretKey: required('SECRET_KEY'),
     accessKey: required('ACCESS_KEY'),
+  },
+  slackInfo: {
+    oauthToken: required('OAUTH_TOKEN'),
+    channelName: required('CHANNEL_NAME'),
+    channelId: required('CHANNEL_ID'),
   },
 };
