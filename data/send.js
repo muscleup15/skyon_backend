@@ -28,7 +28,6 @@ export async function publishMessage(id, text) {
   }
 }
 
-//slack에서 conversationId 찾을때 활용
 export async function findConversation(name) {
   try {
     const result = await client.conversations.list({

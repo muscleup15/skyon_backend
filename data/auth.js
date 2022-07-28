@@ -5,6 +5,10 @@ export async function findById(id) {
   return DB.user.findByPk(id);
 }
 
+export async function findByPhoneNumber(phoneNumber) {
+  return DB.user.findOne({ where: { phoneNumber } });
+}
+
 export async function createUser(user) {
   return DB.user.create(user).then((data) => {
     console.log(data);

@@ -1,4 +1,5 @@
-auth 설정
-password 암호화하여 저장
-ENUM DATA validation
 로그인 할 때 어떤 식으로 정보를 받아서 저장하지? 학생일땐 학생테이블에 선생일때 학부모일 때 각각 req.body가 달라지는데
+로그인 했을 때 토큰 반환해줘야하나? 로그인 새로 하면 안되나
+유저 탈퇴했을때 deleted를 바꾸는것으로 (soft delete)
+유효한 핸드폰 번호, id 몇자리, 비밀번호 몇자리다!! validation
+ENUM DATA validation
