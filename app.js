@@ -1,5 +1,6 @@
 import express from 'express';
 import responseTime from 'response-time';
+import 'express-async-errors';
 import { config } from './config.js';
 import { user } from './data/model.js';
 import { sequelize } from './db/database.js';

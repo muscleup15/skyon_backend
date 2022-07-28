@@ -1,0 +1,4 @@
+auth 설정
+password 암호화하여 저장
+ENUM DATA validation
+로그인 할 때 어떤 식으로 정보를 받아서 저장하지? 학생일땐 학생테이블에 선생일때 학부모일 때 각각 req.body가 달라지는데

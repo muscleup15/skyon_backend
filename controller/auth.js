@@ -1,7 +1,7 @@
-import * as userRepository from '../data/data.js';
+import * as userRepository from '../data/auth.js';
+import bcrypt from 'bcrypt';
 import { verifyCode } from './send.js';
-
-//TODO : hash password
+import { config } from '../config.js';
 
 export async function compareVerifyCode(req, res, next) {
   const { inputVerifyCode } = req.body;
@@ -16,16 +16,18 @@ export async function compareVerifyCode(req, res, next) {
     });
   }
 }
-
 export async function signUp(req, res, next) {
   const { type, phoneNumber, password } = req.body;
+  const hashed = await bcrypt.hash(password, config.bcrypt.saltRounds);
   const userId = await userRepository.createUser({
     type,
     phoneNumber,
-    password,
+    password: hashed,
   });
   res.status(201).json({ userId });
 }
+
+export async function signIn(req, res, next) {}
 
 export async function testChangePw(req, res, next) {
   const { uid, password } = req.body;

@@ -30,4 +30,7 @@ export const config = {
     channelName: required('CHANNEL_NAME'),
     channelId: required('CHANNEL_ID'),
   },
+  bcrypt: {
+    saltRounds: parseInt(required('SALT_ROUNDS')),
+  },
 };
