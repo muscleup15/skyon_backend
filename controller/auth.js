@@ -5,6 +5,8 @@ import { verifyCode } from './send.js';
 import { config } from '../config.js';
 import { user } from '../data/model.js';
 
+//redis를 사용해서 다시 바꿔야겠다.
+
 export async function compareVerifyCode(req, res, next) {
   const { inputVerifyCode } = req.body;
   if (inputVerifyCode == verifyCode) {
@@ -18,6 +20,8 @@ export async function compareVerifyCode(req, res, next) {
     });
   }
 }
+
+//여기서 에러 잡는다
 export async function signUp(req, res, next) {
   const { type, phoneNumber, password } = req.body;
   const hashed = await bcrypt.hash(password, config.bcrypt.saltRounds);
